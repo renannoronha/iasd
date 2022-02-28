@@ -25,39 +25,45 @@
         {% endfor %}
     </div>
 </section>
-{% endif %}
+{% endif %} {% if secao1 %}
 <section class="ftco-section ftco-no-pb ftco-no-pt">
     <div class="container">
         <div class="row no-gutters">
             <div class="col-md-8 d-flex">
                 <div class="row no-gutters">
-                    <div class="col-md-4">
+                    <div class="col-4 col-md-4">
                         <div class="services-2">
-                            <div class="icon"><span class="flaticon-church"></span></div>
+                            <div class="icon"><span class="{{ secao1.icone1 }}"></span></div>
                             <div class="text">
-                                <h4>Worhip</h4>
-                                <span class="subheading">What to expect</span>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <h4>{{ secao1.titulo1 }}</h4>
+                                {% if secao1.subtitulo1 %}
+                                <span class="subheading">{{ secao1.subtitulo1 }}</span>
+                                {% endif %}
+                                <p>{{ secao1.texto1 }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-4 col-md-4">
                         <div class="services-2">
-                            <div class="icon"><span class="flaticon-pray"></span></div>
+                            <div class="icon"><span class="{{ secao1.icone2 }}"></span></div>
                             <div class="text">
-                                <h4>Connect</h4>
-                                <span class="subheading">Contact Members</span>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <h4>{{ secao1.titulo2 }}</h4>
+                                {% if secao1.subtitulo2 %}
+                                <span class="subheading">{{ secao1.subtitulo2 }}</span>
+                                {% endif %}
+                                <p>{{ secao1.texto2 }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-4 col-md-4">
                         <div class="services-2">
-                            <div class="icon"><span class="flaticon-love"></span></div>
+                            <div class="icon"><span class="{{ secao1.icone3 }}"></span></div>
                             <div class="text">
-                                <h4>God's Love</h4>
-                                <span class="subheading">Beliefs and History</span>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <h4>{{ secao1.titulo3 }}</h4>
+                                {% if secao1.subtitulo3 %}
+                                <span class="subheading">{{ secao1.subtitulo3 }}</span>
+                                {% endif %}
+                                <p>{{ secao1.texto3 }}</p>
                             </div>
                         </div>
                     </div>
@@ -66,86 +72,87 @@
             <div class="col-md-4 d-flex">
                 <div class="services-2 services-block">
                     <div class="text">
-                        <h4>A Christian should live for the glory of God and the well-being of others.</h4>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <h4>{{ secao1.servicesTitulo }}</h4>
+                        {% if secao1.servicesSubtitulo %}
+                        <p>{{ secao1.servicesSubtitulo }}</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+{% endif %} {% if secao2 %}
 <section class="ftco-section ftco-no-pt ftco-no-pb bg-light">
     <div class="container">
         <div class="row d-flex">
             <div class="col-md-6 d-flex">
                 <div
                     class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
-                    style="background-image: url(static/home/images/about-3.jpg)"
+                    style="background-image: url({{ secao2.image.url }})"
                 ></div>
             </div>
             <div class="col-md-6 pl-md-5 py-md-5">
                 <div class="heading-section pt-md-5 mb-4">
-                    <span class="subheading">Welcome to Salvation Church</span>
-                    <h2 class="mb-5">Connect, Grow and Serve with Us</h2>
-                    <p>
-                        A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of
-                        sentences fly into your mouth.
-                    </p>
-                    <p>
-                        A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of
-                        sentences fly into your mouth.
-                    </p>
-                    <p><a href="#" class="btn btn-primary">Learn More</a></p>
+                    {% if secao2.upperText %}
+                    <span class="subheading">{{ secao2.upperText }}</span>
+                    {% endif %}
+                    <h2 class="mb-5">{{ secao2.titulo }}</h2>
+                    <p>{{ secao2.texto }}</p>
+                    {% if secao2.botaoLink and secao2.botaoText %}
+                    <p><a href="{{ secao2.botaoLink }}" class="btn btn-primary">{{ secao2.botaoText }}</a></p>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </section>
+{% endif %} {% if secao3 %}
 <section class="ftco-counter bg-primary" id="section-counter">
     <div class="container">
         <div class="row">
             <div class="col-md-3 mb-5 mb-md-0 text-center text-md-left">
-                <h2 class="font-weight-bold" style="color: #fff; font-size: 22px; text-transform: uppercase">We're on a mission to help all your problems</h2>
+                <h2 class="font-weight-bold" style="color: #fff; font-size: 22px; text-transform: uppercase">{{ secao3.titulo }}</h2>
             </div>
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="1005000">0</strong>
+                                <strong class="number" data-number="{{ secao3.valor1 }}">0</strong>
                             </div>
                             <div class="text">
-                                <span>Members</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-                        <div class="block-18 text-center">
-                            <div class="text">
-                                <strong class="number" data-number="65000">0</strong>
-                            </div>
-                            <div class="text">
-                                <span>Pastors</span>
+                                <span>{{ secao3.dado1 }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="500000">0</strong>
+                                <strong class="number" data-number="{{ secao3.valor2 }}">0</strong>
                             </div>
                             <div class="text">
-                                <span>Donations</span>
+                                <span>{{ secao3.dado2 }}</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
                         <div class="block-18 text-center">
                             <div class="text">
-                                <strong class="number" data-number="50">0</strong>
+                                <strong class="number" data-number="{{ secao3.valor3 }}">0</strong>
                             </div>
                             <div class="text">
-                                <span>Churches</span>
+                                <span>{{ secao3.dado3 }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="{{ secao3.valor4 }}">0</strong>
+                            </div>
+                            <div class="text">
+                                <span>{{ secao3.dado4 }}</span>
                             </div>
                         </div>
                     </div>
@@ -154,6 +161,7 @@
         </div>
     </div>
 </section>
+{% endif %} {% if secao4 %}
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center pb-5 mb-3">
@@ -239,6 +247,7 @@
         </div>
     </div>
 </section>
+{% endif %} {% if secao5 %}
 <section class="ftco-section testimony-section">
     <div class="overlay"></div>
     <div class="container">
@@ -316,6 +325,7 @@
         </div>
     </div>
 </section>
+{% endif %} {% if secao6 %}
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center pb-5 mb-3">
@@ -379,6 +389,7 @@
         </div>
     </div>
 </section>
+{% endif %} {% if secao7 %}
 <section class="ftco-section ftco-no-pt">
     <div class="container">
         <div class="row justify-content-center pb-5 mb-3">
@@ -439,6 +450,7 @@
         </div>
     </div>
 </section>
+{% endif %} {% if secao8 %}
 <section class="ftco-section ftco-no-pb ftco-no-pt">
     <div class="container-fluid px-md-0">
         <div class="row no-gutters justify-content-center pb-5 mb-3">
@@ -486,4 +498,5 @@
         </div>
     </div>
 </section>
+{% endif %}
 {% endblock %}

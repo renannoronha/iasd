@@ -14,3 +14,15 @@ class HorariosCultoAdmin(admin.ModelAdmin):
 class BannerAdmin(admin.ModelAdmin):
     list_display = ['titulo', 'ordem', 'upperText', 'subtitulo', 'ativo']
     ordering = ['ordem']
+
+@admin.register(PrimeiraSecao)
+class PrimeiraSecaoAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(SegundaSecao)
+class SegundaSecaoAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(TerceiraSecao)
+class TerceiraSecaoAdmin(admin.ModelAdmin):
+    pass
