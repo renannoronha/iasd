@@ -87,10 +87,12 @@
     <div class="container">
         <div class="row d-flex">
             <div class="col-md-6 d-flex">
+                {% if secao2.image %}
                 <div
                     class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
                     style="background-image: url({{ secao2.image.url }})"
                 ></div>
+                {% endif %}
             </div>
             <div class="col-md-6 pl-md-5 py-md-5">
                 <div class="heading-section pt-md-5 mb-4">
