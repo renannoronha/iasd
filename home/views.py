@@ -21,14 +21,6 @@ class HomeView(BaseView):
         context = self.get_context_data()
         config = Config.objects.get(site=Site.objects.get_current())
         context['title'] = self.title + ' - ' + config.nome
-        context['endereco'] = config.endereco
-        context['facebook'] = config.facebook
-        context['youtube'] = config.youtube
-        context['twitter'] = config.twitter
-        context['instagram'] = config.instagram
-        context['nome'] = config.nome
-        context['telefone'] = config.telefone
-        context['email'] = config.email
-        context['textoRodape'] = config.textoRodape
+        context['config'] = config
         context['horariosCulto'] = HorariosCulto.objects.all()
         return render(request, self.template_name, context)

@@ -3,25 +3,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex align-items-center">
-                <p class="mb-0 location"><span class="fa fa-map-marker mr-2"></span> {{ endereco }}</p>
+                <p class="mb-0 location"><span class="fa fa-map-marker mr-2"></span> {{ config.endereco }}</p>
             </div>
             <div class="col-md-6 d-flex justify-content-md-end">
                 <div class="social-media">
                     <p class="mb-0 d-flex">
-                        {% if facebook %}
-                        <a href="{{ facebook }}" target="_blank" class="d-flex align-items-center justify-content-center">
+                        {% if config.facebook %}
+                        <a href="{{ config.facebook }}" target="_blank" class="d-flex align-items-center justify-content-center">
                             <span class="fa fa-facebook"><i class="sr-only">Facebook</i></span>
                         </a>
-                        {% endif %} {% if youtube %}
-                        <a href="{{ youtube }}" target="_blank" class="d-flex align-items-center justify-content-center">
+                        {% endif %} {% if config.youtube %}
+                        <a href="{{ config.youtube }}" target="_blank" class="d-flex align-items-center justify-content-center">
                             <span class="fa fa-youtube"><i class="sr-only">Youtube</i></span>
                         </a>
-                        {% endif %} {% if twitter %}
-                        <a href="{{ twitter }}" target="_blank" class="d-flex align-items-center justify-content-center">
+                        {% endif %} {% if config.twitter %}
+                        <a href="{{ config.twitter }}" target="_blank" class="d-flex align-items-center justify-content-center">
                             <span class="fa fa-twitter"><i class="sr-only">Twitter</i></span>
                         </a>
-                        {% endif %} {% if instagram %}
-                        <a href="{{ instagram }}" target="_blank" class="d-flex align-items-center justify-content-center">
+                        {% endif %} {% if config.instagram %}
+                        <a href="{{ config.instagram }}" target="_blank" class="d-flex align-items-center justify-content-center">
                             <span class="fa fa-instagram"><i class="sr-only">Instagram</i></span>
                         </a>
                         {% endif %}

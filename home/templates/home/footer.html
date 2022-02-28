@@ -3,24 +3,24 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                <h2 class="footer-heading">{{ nome }}</h2>
-                <p>{{ textoRodape }}</p>
+                <h2 class="footer-heading">{{ config.nome }}</h2>
+                <p>{{ config.textoRodape }}</p>
                 <ul class="ftco-footer-social p-0">
-                    {% if twitter %}
+                    {% if config.twitter %}
                     <li class="ftco-animate">
-                        <a href="{{ twitter }}" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a>
+                        <a href="{{ config.twitter }}" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a>
                     </li>
-                    {% endif %} {% if facebook %}
+                    {% endif %} {% if config.facebook %}
                     <li class="ftco-animate">
-                        <a href="{{ facebook }}" target="_blank" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a>
+                        <a href="{{ config.facebook }}" target="_blank" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a>
                     </li>
-                    {% endif %} {% if instagram %}
+                    {% endif %} {% if config.instagram %}
                     <li class="ftco-animate">
-                        <a href="{{ instagram }}" target="_blank" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a>
+                        <a href="{{ config.instagram }}" target="_blank" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a>
                     </li>
-                    {% endif %} {% if youtube %}
+                    {% endif %} {% if config.youtube %}
                     <li class="ftco-animate">
-                        <a href="{{ youtube }}" target="_blank" data-toggle="tooltip" data-placement="top" title="Youtube"><span class="fa fa-youtube"></span></a>
+                        <a href="{{ config.youtube }}" target="_blank" data-toggle="tooltip" data-placement="top" title="Youtube"><span class="fa fa-youtube"></span></a>
                     </li>
                     {% endif %}
                 </ul>
@@ -64,14 +64,14 @@
                 <h2 class="footer-heading">Nossa Localização</h2>
                 <div class="block-23 mb-3">
                     <ul>
-                        <li><span class="icon fa fa-map"></span><span class="text">{{ endereco }}</span></li>
+                        <li><span class="icon fa fa-map"></span><span class="text">{{ config.endereco }}</span></li>
                         <li>
-                            <a href="#"><span class="icon fa fa-phone"></span><span class="text">{{ telefone }}</span></a>
+                            <a href="#"><span class="icon fa fa-phone"></span><span class="text">{{ config.telefone }}</span></a>
                         </li>
                         <li>
                             <a href="#">
                                 <span class="icon fa fa-paper-plane"></span>
-                                <span class="text"> <span class="__cf_email__">{{ email }}</span> </span>
+                                <span class="text"> <span class="__cf_email__">{{ config.email }}</span> </span>
                             </a>
                         </li>
                     </ul>
