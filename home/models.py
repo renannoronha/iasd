@@ -17,3 +17,21 @@ class Config(models.Model):
     class Meta:
         verbose_name = 'Configuração'
         verbose_name_plural = 'Configurações'
+
+class HorariosCulto(models.Model):
+    WEEKDAY_CHOICES = (
+        ("Domingo", "Domingo"),
+        ("Segunda", "Segunda"),
+        ("Terça", "Terça"),
+        ("Quarta", "Quarta"),
+        ("Quinta", "Quinta"),
+        ("Sexta", "Sexta"),
+        ("Sábado", "Sábado"),
+    )
+
+    weekday = models.CharField('Dia da Semana', max_length=9, choices=WEEKDAY_CHOICES)
+    time = models.TimeField('Horário')
+    
+    class Meta:
+        verbose_name = 'Horário de Culto'
+        verbose_name_plural = 'Horários de Culto'

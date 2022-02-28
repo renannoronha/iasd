@@ -5,5 +5,6 @@ class HomeConfig(AppConfig):
 
     def ready(self):
         from django.db.models.signals import post_migrate
-        from .signals import create_config
+        from .signals import create_config, create_horario
         post_migrate.connect(create_config, sender=self)
+        post_migrate.connect(create_horario, sender=self)

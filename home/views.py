@@ -3,7 +3,7 @@ from django.views.generic import View
 from django.http import HttpResponse
 from django.contrib.sites.models import Site
 
-from .models import Config
+from .models import Config, HorariosCulto
 
 # Create your views here.
 class BaseView(View):
@@ -30,4 +30,5 @@ class HomeView(BaseView):
         context['telefone'] = config.telefone
         context['email'] = config.email
         context['textoRodape'] = config.textoRodape
+        context['horariosCulto'] = HorariosCulto.objects.all()
         return render(request, self.template_name, context)

@@ -52,21 +52,13 @@
             </div>
             <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
                 <h2 class="footer-heading">Horários de Culto</h2>
+                {% for horario in horariosCulto %}
                 <div class="block-21 mb-4">
                     <div class="text">
-                        <h3 class="heading"><p>Sábados 09h</p></h3>
+                        <h3 class="heading"><p>{{ horario.weekday }} às {{ horario.time }}h</p></h3>
                     </div>
                 </div>
-                <div class="block-21 mb-4">
-                    <div class="text">
-                        <h3 class="heading"><p>Domingos 20h</p></h3>
-                    </div>
-                </div>
-                <div class="block-21 mb-4">
-                    <div class="text">
-                        <h3 class="heading"><p>Quartas 20h</p></h3>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                 <h2 class="footer-heading">Nossa Localização</h2>
