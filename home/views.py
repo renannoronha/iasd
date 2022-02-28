@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import View
 from django.http import HttpResponse
+from django.contrib.sites.models import Site
+
+from .models import Config
 
 # Create your views here.
 class BaseView(View):
@@ -12,17 +15,19 @@ class BaseView(View):
 
 class HomeView(BaseView):
     template_name = 'home/home.html'
-    title = 'Página Inicial - IASD Central de Foz'
+    title = 'Página Inicial'
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
-        context['title'] = self.title
-        context['endereco'] = 'Av. República Argentina, 552 85851-200 Foz do Iguaçu, PR'
-        context['facebook'] = 'https://www.facebook.com/iasd.fozcentral'
-        context['youtube'] = 'https://www.youtube.com/channel/UCsLvHS14G27MukIDiVDgiWQ'
-        context['twitter'] = ''
-        context['instagram'] = 'https://www.instagram.com/iasdcentralfoz2/'
-        context['nome'] = 'IASD Central de Foz'
-        context['telefone'] = '+55 45 99999-9999'
-        context['email'] = 'email@email.com'
+        config = Config.objects.get(site=Site.objects.get_current())
+        context['title'] = self.title + ' - ' + config.nome
+        context['endereco'] = config.endereco
+        context['facebook'] = config.facebook
+        context['youtube'] = config.youtube
+        context['twitter'] = config.twitter
+        context['instagram'] = config.instagram
+        context['nome'] = config.nome
+        context['telefone'] = config.telefone
+        context['email'] = config.email
+        context['textoRodape'] = config.textoRodape
         return render(request, self.template_name, context)

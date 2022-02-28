@@ -12,6 +12,7 @@ class Config(models.Model):
     youtube = models.CharField('URL do Canal do Youtube', max_length=255, null=True, blank=True)
     twitter = models.CharField('URL da conta no Twitter', max_length=255, null=True, blank=True)
     instagram = models.CharField('URL da conta no Instagram', max_length=255, null=True, blank=True)
+    textoRodape = models.TextField('Texto Rodapé', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Configuração'

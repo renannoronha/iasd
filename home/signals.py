@@ -12,4 +12,5 @@ def create_config(sender, **kwargs):
             youtube='https://www.youtube.com/channel/UCsLvHS14G27MukIDiVDgiWQ',
             twitter='',
             instagram='https://www.instagram.com/iasdcentralfoz2/',
+            textoRodape='Lancem sobre Ele toda a ansiedade porque Ele tem cuidado de vós. I Pedro 5:7',
         )
