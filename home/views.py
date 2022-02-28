@@ -3,7 +3,7 @@ from django.views.generic import View
 from django.http import HttpResponse
 from django.contrib.sites.models import Site
 
-from .models import Config, HorariosCulto
+from .models import Config, HorariosCulto, Banner
 
 # Create your views here.
 class BaseView(View):
@@ -23,4 +23,5 @@ class HomeView(BaseView):
         context['title'] = self.title + ' - ' + config.nome
         context['config'] = config
         context['horariosCulto'] = HorariosCulto.objects.all()
+        context['banners'] = Banner.objects.filter(ativo=True).order_by('ordem')
         return render(request, self.template_name, context)

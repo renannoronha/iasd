@@ -35,3 +35,13 @@ class HorariosCulto(models.Model):
     class Meta:
         verbose_name = 'Horário de Culto'
         verbose_name_plural = 'Horários de Culto'
+
+class Banner(models.Model):
+    ordem = models.IntegerField('Número na Sequência', default=1)
+    backgroundImage = models.ImageField('Imagem de Fundo', upload_to='banner/')
+    upperText = models.CharField('Texto Superior', max_length=255, null=True, blank=True)
+    titulo = models.CharField('Título', max_length=255)
+    subtitulo = models.CharField('Subtítulo', max_length=255, null=True, blank=True)
+    botaoLink = models.CharField('Link do Botão', max_length=255, null=True, blank=True)
+    botaoText = models.CharField('Texto do Botão', max_length=255, null=True, blank=True)
+    ativo = models.BooleanField('Ativo', default=True, null=True, blank=True)
