@@ -73,7 +73,7 @@ class PrimeiraSecao(models.Model):
 
 class SegundaSecao(models.Model):
     site = models.OneToOneField(Site, on_delete=models.PROTECT)
-    image = models.ImageField('Imagem de Fundo', upload_to='banner/', null=True, blank=True)
+    image = models.ImageField('Imagem de Fundo', upload_to='secao2/', null=True, blank=True)
     upperText = models.CharField('Texto Superior', max_length=255, null=True, blank=True)
     titulo = models.CharField('Título', max_length=255)
     texto = models.TextField('Texto', default='')
