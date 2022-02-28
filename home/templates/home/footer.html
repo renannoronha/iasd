@@ -1,0 +1,103 @@
+{% load static %}
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                <h2 class="footer-heading">Igreja Adventista do Sétimo Dia<br />Central de Foz</h2>
+                <p>Lancem sobre Ele toda a ansiedade porque Ele tem cuidado de vós. I Pedro 5:7</p>
+                <ul class="ftco-footer-social p-0">
+                    {% if twitter %}
+                    <li class="ftco-animate">
+                        <a href="{{ twitter }}" data-toggle="tooltip" data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a>
+                    </li>
+                    {% endif %} {% if facebook %}
+                    <li class="ftco-animate">
+                        <a href="{{ facebook }}" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="fa fa-facebook"></span></a>
+                    </li>
+                    {% endif %} {% if instagram %}
+                    <li class="ftco-animate">
+                        <a href="{{ instagram }}" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="fa fa-instagram"></span></a>
+                    </li>
+                    {% endif %} {% if youtube %}
+                    <li class="ftco-animate">
+                        <a href="{{ youtube }}" data-toggle="tooltip" data-placement="top" title="Youtube"><span class="fa fa-youtube"></span></a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                <h2 class="footer-heading">Ultimos Sermões</h2>
+                <div class="block-21 mb-4 d-flex">
+                    <a class="img mr-4 rounded" style="background-image: url(media/ariane_20220227.jpeg)"></a>
+                    <div class="text">
+                        <h3 class="heading"><a href="#">A quem procurar na hora da aflição?</a></h3>
+                        <div class="meta">
+                            <div><a href="#">Ariane Passos</a></div>
+                            <div><a href="#">27 de Fevereiro de 2022</a></div>
+                            <!-- <div><a href="#">19</a></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="block-21 mb-4 d-flex">
+                    <a class="img mr-4 rounded" style="background-image: url(media/henrique_20220226.jpeg)"></a>
+                    <div class="text">
+                        <h3 class="heading"><a href="#">O selamento do povo de Deus</a></h3>
+                        <div class="meta">
+                            <div><a href="#">Henrique Almeida</a></div>
+                            <div><a href="#">26 de Fevereiro de 2022</a></div>
+                            <!-- <div><a href="#">19</a></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
+                <h2 class="footer-heading">Horários de Culto</h2>
+                <div class="block-21 mb-4">
+                    <div class="text">
+                        <h3 class="heading"><p>Sábados 09h</p></h3>
+                    </div>
+                </div>
+                <div class="block-21 mb-4">
+                    <div class="text">
+                        <h3 class="heading"><p>Domingos 20h</p></h3>
+                    </div>
+                </div>
+                <div class="block-21 mb-4">
+                    <div class="text">
+                        <h3 class="heading"><p>Quartas 20h</p></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
+                <h2 class="footer-heading">Nossa Localização</h2>
+                <div class="block-23 mb-3">
+                    <ul>
+                        <li><span class="icon fa fa-map"></span><span class="text">{{ endereco }}</span></li>
+                        <li>
+                            <a href="#"><span class="icon fa fa-phone"></span><span class="text">{{ telefone }}</span></a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon fa fa-paper-plane"></span>
+                                <span class="text"> <span class="__cf_email__">{{ email }}</span> </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <p class="copyright">
+                    Copyright &copy;
+                    <script data-cfasync="false" src="{% static 'home/js/email-decode.min.js' %}"></script>
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by
+                    <a href="https://colorlib.com/" target="_blank">Colorlib.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
