@@ -11,7 +11,10 @@ from gallery.models import Gallery
 class BaseView(View):
     def get_context_data(self, **kwargs):
         context = {
-            'version': 1
+            'version': 1,
+            'horariosCulto': HorariosCulto.objects.all(),
+            'config': Config.objects.get(site=Site.objects.get_current()),
+            'footerSermons': Sermon.objects.filter(ativo=True).order_by('-date')[:2]
         }
         return context
 
@@ -21,10 +24,7 @@ class HomeView(BaseView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
-        config = Config.objects.get(site=Site.objects.get_current())
-        context['title'] = self.title + ' - ' + config.nome
-        context['config'] = config
-        context['horariosCulto'] = HorariosCulto.objects.all()
+        context['title'] = self.title + ' - ' + context['config'].nome
         context['banners'] = Banner.objects.filter(ativo=True).order_by('ordem')
         context['secao1'] = PrimeiraSecao.objects.filter(site=Site.objects.get_current()).first()
         context['secao2'] = SegundaSecao.objects.filter(site=Site.objects.get_current()).first()
