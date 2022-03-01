@@ -19,7 +19,7 @@ response = youtube.playlistItems().list(playlistId=playlist_id, part='snippet').
 
 lastVideo = Sermon.objects.all().order_by('-date').first()
 for video in response['items']:
-    date = datetime.fromisoformat(video['snippet']['publishedAt'][:-1] + '-03:00').date()
+    date = datetime.strptime(video['snippet']['publishedAt'][:-1], '%Y-%m-%dT%H:%M:%S').date()
     if date == lastVideo.date:
         print(date)
         print(lastVideo.date)
