@@ -5,6 +5,7 @@ from django.contrib.sites.models import Site
 
 from .models import *
 from sermon.models import Sermon
+from gallery.models import Gallery
 
 # Create your views here.
 class BaseView(View):
@@ -32,5 +33,5 @@ class HomeView(BaseView):
         context['secao5'] = None
         context['secao6'] = None
         context['secao7'] = None
-        context['secao8'] = None
+        context['secao8'] = Gallery.objects.filter(ativo=True)
         return render(request, self.template_name, context)

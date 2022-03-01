@@ -406,46 +406,18 @@
     <div class="container-fluid px-md-0">
         <div class="row no-gutters justify-content-center pb-5 mb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
-                <span class="subheading">Gallery</span>
-                <h2>Galleries</h2>
+                <span class="subheading">Fotos</span>
+                <h2>Galeria de Fotos</h2>
             </div>
         </div>
         <div class="row no-gutters">
+            {% for foto in secao8 %}
             <div class="col-md-3">
-                <a href="images/gallery-1.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(static/home/images/gallery-1.jpg)">
+                <a href="{{ foto.image.url }}" class="image-popup img gallery ftco-animate" style="background-image: url({{ foto.image.url }})">
                     <span class="overlay"></span>
                 </a>
             </div>
-            <div class="col-md-3">
-                <a href="images/gallery-2.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(static/home/images/gallery-2.jpg)">
-                    <span class="overlay"></span>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="images/gallery-3.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(static/home/images/gallery-3.jpg)">
-                    <span class="overlay"></span>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="images/gallery-4.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(static/home/images/gallery-4.jpg)">
-                    <span class="overlay"></span>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a href="images/gallery-5.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(static/home/images/gallery-5.jpg)">
-                    <span class="overlay"></span>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="images/gallery-6.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(static/home/images/gallery-6.jpg)">
-                    <span class="overlay"></span>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="images/gallery-7.jpg" class="image-popup img gallery ftco-animate" style="background-image: url(static/home/images/gallery-7.jpg)">
-                    <span class="overlay"></span>
-                </a>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
