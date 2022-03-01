@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.sites.models import Site
 
 from .models import *
+from sermon.models import Sermon
 
 # Create your views here.
 class BaseView(View):
@@ -27,7 +28,7 @@ class HomeView(BaseView):
         context['secao1'] = PrimeiraSecao.objects.filter(site=Site.objects.get_current()).first()
         context['secao2'] = SegundaSecao.objects.filter(site=Site.objects.get_current()).first()
         context['secao3'] = TerceiraSecao.objects.filter(site=Site.objects.get_current()).first()
-        context['secao4'] = None
+        context['secao4'] = Sermon.objects.filter(ativo=True).order_by('-date')[:3]
         context['secao5'] = None
         context['secao6'] = None
         context['secao7'] = None
