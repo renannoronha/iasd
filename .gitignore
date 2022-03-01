@@ -117,3 +117,5 @@ salvation/
 update.sh
 iasd/settings.py
 media/
+api_key.txt
+client_secrets.json
