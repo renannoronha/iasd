@@ -4,5 +4,5 @@ from .models import *
 # Register your models here.
 @admin.register(Sermon)
 class SermonAdmin(admin.ModelAdmin):
-    list_display = ['title', 'speaker', 'date']
+    list_display = ['title', 'speaker', 'date', 'ativo']
     ordering = ['-date']
