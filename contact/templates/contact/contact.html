@@ -1,0 +1,121 @@
+{% extends 'home/base.html' %} {% load static %} {% block body %}
+<section class="hero-wrap hero-wrap-2" style="background-image: url(/static/home/images/xbg_1.jpg.pagespeed.ic.3kNI_vvZgJ.jpg)">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs mb-2">
+                    <span class="mr-2"
+                        ><a href="index.html">Home <i class="fa fa-chevron-right"></i></a
+                    ></span>
+                    <span>Contato <i class="fa fa-chevron-right"></i></span>
+                </p>
+                <h1 class="mb-0 bread">Contato</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="wrapper">
+                    <div class="row mb-5">
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon bg-primary d-flex align-items-center justify-content-center">
+                                    <span class="fa fa-map-marker"></span>
+                                </div>
+                                <div class="text">
+                                    <p><span>Endereço:</span> {{ config.endereco }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon bg-secondary d-flex align-items-center justify-content-center">
+                                    <span class="fa fa-phone"></span>
+                                </div>
+                                <div class="text">
+                                    <p><span>Telefone:</span> <a href="tel://1234567920">{{ config.telefone }}</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon bg-tertiary d-flex align-items-center justify-content-center">
+                                    <span class="fa fa-paper-plane"></span>
+                                </div>
+                                <div class="text">
+                                    <p>
+                                        <span>Email:</span>
+                                        <a href="mailto:{{ config.email }}"><span class="">{{ config.email }}</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dbox w-100 text-center">
+                                <div class="icon bg-quarternary d-flex align-items-center justify-content-center">
+                                    <span class="fa fa-facebook"></span>
+                                </div>
+                                <div class="text">
+                                    <p><span>Facebook</span> <a href="{{ config.facebook }}" target="_blank">@iasd.fozcentral</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col-md-7">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Contato</h3>
+                                <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="label" for="name">Nome</label>
+                                                <input type="text" class="form-control" name="name" id="name" required placeholder="Nome" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="label" for="email">Email</label>
+                                                <input type="email" class="form-control" name="email" id="email" required placeholder="Email" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="label" for="subject">Assunto</label>
+                                                <input type="text" class="form-control" name="subject" id="subject" required placeholder="Assunto" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="label" for="#">Mensagem</label>
+                                                <textarea name="message" class="form-control" id="message" cols="30" rows="4" required placeholder="Mensagem"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                {% csrf_token  %}
+                                                <input type="submit" value="Enviar Mensagem" class="btn btn-secondary" />
+                                                <div class="submitting"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-5 d-flex align-items-stretch">
+                            <div class="info-wrap w-100 p-5 img" style="background-image: url(/static/home/images/xabout-3.jpg.pagespeed.ic.CY2_WLRDwR.jpg)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% comment %} <div class="col-md-12">
+                <div id="map" class="map"></div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+</section>
+{% endblock %}
