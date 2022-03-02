@@ -3987,6 +3987,17 @@ a.btn.disabled,
 fieldset:disabled a.btn {
   pointer-events: none; }
 
+.btn-secondary {
+  color: #fff;
+  /* background-color: #007bff; */
+  border-color: #fff;
+  border-width: 2px; }
+  .btn-secondary:hover {
+    color: #ce0f3d;
+    background-color: #fff;
+    border-color: #ce0f3d;
+    border-width: 2px; }
+
 .btn-primary {
   color: #fff;
   background-color: #007bff;
