@@ -1,13 +1,15 @@
 from django.shortcuts import render
+from django.conf import settings
 from .models import Sermon
 
 from apiclient.discovery import build
-import requests
 from datetime import datetime
+import requests
+import os
 
 # Create your views here.
 def getNewVideos():
-    api_key = open("api_key.txt", "r").read()
+    api_key = open(os.path.join(settings.BASE_DIR, "api_key.txt"), "r").read()
     youtube = build('youtube', 'v3', developerKey=api_key)
     channel_id = 'UCsLvHS14G27MukIDiVDgiWQ'
 
