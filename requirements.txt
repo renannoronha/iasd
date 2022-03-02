@@ -1,0 +1,9 @@
+Django
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+googleapis-common-protos
+httplib2
+oauthlib
+Pillow
+django-object-actions
