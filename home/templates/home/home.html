@@ -179,17 +179,17 @@
             </div>
             <div class="col-md-6 ftco-animate d-flex align-items-center">
                 <div class="text" style="padding: 2rem;">
-                    <h2 class="mb-4"><a href="sermon.html">{{ sermon.title }}</a></h2>
+                    <h2 class="mb-4"><a href="{{ sermon.link }}" taget="_blank">{{ sermon.title }}</a></h2>
                     <div class="meta">
                         <p>
-                            <span>Pregador: <a href="#" class="ptr">{{ sermon.speaker }}</a></span>
+                            <span>Pregador: <a class="ptr">{{ sermon.speaker }}</a></span>
                             {% comment %} <span>Categories: <a href="#">God</a>, <a href="#">Pray</a>, <a href="#">Faith</a></span> {% endcomment %}
                             <span><a>{{ sermon.date }}</a></span>
                         </p>
                     </div>
                     <p>{{ sermon.description }}</p>
                     <p class="mt-4 btn-customize">
-                        <a href="{{ sermon.link }}" target="_blank" class="btn btn-primary px-4 py-3 mr-md-2 popup-vimeo"><span class="fa fa-play"></span> Assistir Sermão</a>
+                        <a href="{{ sermon.link }}" class="btn btn-primary px-4 py-3 mr-md-2 popup-vimeo"><span class="fa fa-play"></span> Assistir Sermão</a>
                         {% comment %} <a href="#" class="btn btn-primary btn-outline-primary px-4 py-3 ml-lg-2"><span class="fa fa-download"></span> Download Sermons</a> {% endcomment %}
                     </p>
                 </div>
