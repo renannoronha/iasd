@@ -1,0 +1,55 @@
+{% extends 'home/base.html' %} {% load static %} {% block body %}
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="{% static 'escala/evo-calendar/css/evo-calendar.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'escala/evo-calendar/css/evo-calendar.orange-coral.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'escala/evo-calendar/css/evo-calendar.royal-navy.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'escala/evo-calendar/css/evo-calendar.midnight-blue.min.css' %}" />
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url(/static/home/images/bg_1.jpg)">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs mb-2">
+                    <span class="mr-2"
+                        ><a href="index.html">Início <i class="fa fa-chevron-right"></i></a
+                    ></span>
+                    <span>Escala <i class="fa fa-chevron-right"></i></span>
+                </p>
+                <h1 class="mb-0 bread">Escala</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <div class="wrapper">
+            <div id="calendar" style="line-height: 1 !important"></div>
+        </div>
+    </div>
+    {% comment %}
+    <div class="col-md-12">
+        <div id="map" class="map"></div>
+    </div>
+    {% endcomment %}
+</div>
+{% endblock %} {% block script %}
+<script src="{% static 'escala/evo-calendar/js/evo-calendar.js' %}"></script>
+<script>
+    var calendarSettings = {
+        calendarEvents: [],
+        format: "dd/mm/yyyy",
+        titleFormat: "MM yyyy",
+        eventHeaderFormat: "mm/dd/yyyy",
+        language: "pt",
+        sidebarToggler: true,
+        sidebarDisplayDefault: true,
+        eventListToggler: true,
+        eventDisplayDefault: true,
+        theme: "Royal Navy",
+    };
+    calendarSettings["calendarEvents"] = JSON.parse($.ajax({ type: "GET", url: "eventos/", async: false }).responseText);
+    console.log(calendarSettings["calendarEvents"]);
+    $("#calendar").evoCalendar(calendarSettings);
+</script>
+{% endblock %}
