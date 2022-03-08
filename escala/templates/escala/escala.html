@@ -38,10 +38,6 @@
         theme: "Royal Navy",
     };
     calendarSettings["calendarEvents"] = JSON.parse($.ajax({ type: "GET", url: "eventos/", async: false }).responseText);
-    console.log(calendarSettings["calendarEvents"]);
     $("#calendar").evoCalendar(calendarSettings);
-    $('#calendar').on('selectDate', function(event, newDate, oldDate) {
-        console.log(event, newDate, oldDate);
-    });
 </script>
 {% endblock %}
