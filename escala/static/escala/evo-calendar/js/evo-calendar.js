@@ -94,8 +94,8 @@
                         daysMin: ["Do", "2a", "3a", "4a", "5a", "6a", "Sa"],
                         months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
                         monthsShort: ["Jan", "Feb", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
-                        // noEventForToday: "Nenhum evento para hoje.. então descanse! :)",
-                        // noEventForThisDay: "Nenhum evento para este dia.. então descanse! :)",
+                        noEventForToday: "Nenhum evento para hoje.. então descanse! :)",
+                        noEventForThisDay: "Nenhum evento para este dia.. então descanse! :)",
                         previousYearText: "Ano anterior",
                         nextYearText: "Próximo ano",
                         closeSidebarText: "Feche a barra lateral",
@@ -641,7 +641,6 @@
             }
             markup += '</div>';
         }
-        // Show clean event list if there's no event
         // eventListEl.append(markup)
     }
 
@@ -676,13 +675,11 @@
         eventListEl.find('[data-event-index="'+event_data+'"]').remove();
         if (eventListEl.find('[data-event-index]').length === 0) {
             eventListEl.empty();
-            // if (_.$active.date === _.$current.date) {
-            //     markup += '<p>'+_.initials.dates[_.options.language].noEventForToday+'</p>';
-            // } else {
-            //     markup += '<p>'+_.initials.dates[_.options.language].noEventForThisDay+'</p>';
-            // }
-            
-            // Show clean event list if there's no event
+            if (_.$active.date === _.$current.date) {
+                markup += '<p>'+_.initials.dates[_.options.language].noEventForToday+'</p>';
+            } else {
+                markup += '<p>'+_.initials.dates[_.options.language].noEventForThisDay+'</p>';
+            }
             // eventListEl.append(markup)
         }
     }

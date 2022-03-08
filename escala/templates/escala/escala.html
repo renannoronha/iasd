@@ -21,26 +21,15 @@
         </div>
     </div>
 </section>
-<div class="row justify-content-center">
-    <div class="col-md-12">
-        <div class="wrapper">
-            <div id="calendar" style="line-height: 1 !important"></div>
-        </div>
-    </div>
-    {% comment %}
-    <div class="col-md-12">
-        <div id="map" class="map"></div>
-    </div>
-    {% endcomment %}
-</div>
+<div id="calendar" style="line-height: 1 !important"></div>
 {% endblock %} {% block script %}
 <script src="{% static 'escala/evo-calendar/js/evo-calendar.js' %}"></script>
 <script>
     var calendarSettings = {
         calendarEvents: [],
-        format: "dd/mm/yyyy",
+        // format: "dd/mm/yyyy", // do not use, breaks the calendar
         titleFormat: "MM yyyy",
-        eventHeaderFormat: "mm/dd/yyyy",
+        eventHeaderFormat: "dd/mm/yyyy",
         language: "pt",
         sidebarToggler: true,
         sidebarDisplayDefault: true,
@@ -51,5 +40,8 @@
     calendarSettings["calendarEvents"] = JSON.parse($.ajax({ type: "GET", url: "eventos/", async: false }).responseText);
     console.log(calendarSettings["calendarEvents"]);
     $("#calendar").evoCalendar(calendarSettings);
+    $('#calendar').on('selectDate', function(event, newDate, oldDate) {
+        console.log(event, newDate, oldDate);
+    });
 </script>
 {% endblock %}
