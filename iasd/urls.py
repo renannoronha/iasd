@@ -25,4 +25,5 @@ urlpatterns = [
     path('', include('contact.urls')),
     path('', include('sermon.urls')),
     path('', include('escala.urls')),
+    path('', include('testemunho.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

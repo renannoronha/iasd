@@ -1,0 +1,42 @@
+{% extends 'home/base.html' %} {% load static %} {% block body %}
+<section class="hero-wrap hero-wrap-2" style="background-image: url(/static/home/images/bg_1.jpg)">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs mb-2">
+                    <span class="mr-2">
+                        <a href="index.html">Início <i class="fa fa-chevron-right"></i></a>
+                    </span>
+                    <span>Testemunho <i class="fa fa-chevron-right"></i></span>
+                </p>
+                <h1 class="mb-0 bread">Testemunho</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container" style="padding-top: 20px;">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-3 justify-content-center">
+            <div class="staff">
+                <div class="img" style="background-image: url({{ testemunho.image.url }})"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="padding-bottom: 20px;">
+    <div class="no-gutters d-flex sermon-wrap ftco-animate bg-light">
+        <div class="col-md-12 ftco-animate d-flex align-items-center">
+            <div class="text" style="padding: 2rem">
+                <h2 class="mb-4"><a>{{ testemunho.name }}</a></h2>
+                <p>{{ testemunho.description }}</p>
+                {% if testemunho.url %}
+                <p class="mt-4 btn-customize">
+                    <a href="{{ testemunho.url }}" class="btn btn-primary px-4 py-3 mr-md-2 popup-vimeo"><span class="fa fa-play"></span> Assista ao Testemunho</a>
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
