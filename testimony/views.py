@@ -2,7 +2,7 @@ from .models import *
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import testimony
+from .models import Testimony
 from home.views import BaseView
 
 # Create your views here.
@@ -16,7 +16,7 @@ class TestimoniesView(BaseView):
         context = self.get_context_data()
         context['title'] = self.title + ' - ' + context['config'].nome
 
-        paginator = Paginator(testimony.objects.all(), 10)
+        paginator = Paginator(Testimony.objects.all(), 10)
         page = request.GET.get('p', 1)
         try:
             testimonies = paginator.page(page)
@@ -31,7 +31,7 @@ class TestimoniesView(BaseView):
 
 class TestimonyView(BaseView):
     template_name = 'testimony/testimony.html'
-    title = 'Testimony'
+    title = 'Testemunho'
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
