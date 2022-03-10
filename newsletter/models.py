@@ -10,5 +10,5 @@ class News(models.Model):
     videoLink = models.CharField('Link do Vídeo', max_length=255, null=True, blank=True)
 
     class Meta:
-        verbose_name = 'Ministério'
-        verbose_name_plural = 'Ministérios'
+        verbose_name = 'Boletim Semanal'
+        verbose_name_plural = 'Boletim Semanal'
