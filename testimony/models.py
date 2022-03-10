@@ -7,3 +7,7 @@ class Testimony(models.Model):
     shortDescription = models.CharField('Descrição Curta', max_length=255)
     description = models.TextField('Testemunho')
     video = models.CharField('URL do vídeo do Testemunho (Youtube)', max_length=255, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Testemunho'
+        verbose_name_plural = 'Testemunhos'
