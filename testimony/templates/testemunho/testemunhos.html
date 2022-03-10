@@ -17,36 +17,36 @@
 </section>
 <section class="ftco-section">
     <div class="container">
-        {% for testemunho in testemunhos %}
+        {% for testimony in testimonies %}
         <div class="row no-gutters d-flex sermon-wrap ftco-animate bg-light">
             <div class="col-md-6 d-flex align-items-stretch ftco-animate event-wrap {% if forloop.counter|divisibleby:2 != 0 %}order-md-last{% endif %}">
-                <a href="{% url 'testemunho' testemunho.id %}" target="_blank" class="img" style="background-image: url({{ testemunho.image.url }})"></a>
+                <a href="{% url 'testimony' testimony.id %}" target="_blank" class="img" style="background-image: url({{ testimony.image.url }})"></a>
             </div>
             <div class="col-md-6 ftco-animate d-flex align-items-center">
                 <div class="text" style="padding: 2rem">
-                    <h2 class="mb-4"><a>{{ testemunho.name }}</a></h2>
-                    <p>{{ testemunho.shortDescription }}</p>
+                    <h2 class="mb-4"><a>{{ testimony.name }}</a></h2>
+                    <p>{{ testimony.shortDescription }}</p>
                     <p class="mt-4 btn-customize">
-                        <a href="{% url 'testemunho' testemunho.id %}" class="btn btn-primary px-4 py-3 mr-md-2"><span class="fa fa-plus"></span> Saiba Mais</a>
+                        <a href="{% url 'testimony' testimony.id %}" class="btn btn-primary px-4 py-3 mr-md-2"><span class="fa fa-plus"></span> Saiba Mais</a>
                     </p>
                 </div>
             </div>
         </div>
-        {% endfor %} {% if testemunhos.has_other_pages %}
+        {% endfor %} {% if testimonies.has_other_pages %}
         <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        {% if testemunhos.has_previous %}
-                        <li><a href="?p={{ testemunhos.previous_page_number }}">&lt;</a></li>
+                        {% if testimonies.has_previous %}
+                        <li><a href="?p={{ testimonies.previous_page_number }}">&lt;</a></li>
                         {% else %}
                         <li><a disabled>&lt;</a></li>
-                        {% endif %} {% for i in testemunhos.paginator.page_range %} {% if testemunhos.number == i %}
+                        {% endif %} {% for i in testimonies.paginator.page_range %} {% if testimonies.number == i %}
                         <li class="active"><span>{{ i }}</span></li>
                         {% else %}
                         <li><a href="?p={{ i }}">{{ i }}</a></li>
-                        {% endif %} {% endfor %} {% if testemunhos.has_next %}
-                        <li><a href="?p={{ testemunhos.next_page_number }}">&gt;</a></li>
+                        {% endif %} {% endfor %} {% if testimonies.has_next %}
+                        <li><a href="?p={{ testimonies.next_page_number }}">&gt;</a></li>
                         {% else %}
                         <li><a disabled>&gt;</a></li>
                         {% endif %}

@@ -211,16 +211,16 @@
         <div class="row ftco-animate">
             <div class="col-md-12">
                 <div class="carousel-testimony owl-carousel">
-                    {% for testemunho in secao5 %}
+                    {% for testimony in secao5 %}
                     <div class="item">
                         <div class="testimony-wrap d-md-flex">
-                            <div class="user-img" style="background-image: url({{ testemunho.image.url }})"></div>
+                            <div class="user-img" style="background-image: url({{ testimony.image.url }})"></div>
                             <div class="text pl-md-4">
                                 <span class="quote d-flex align-items-center justify-content-center">
                                     <i class="fa fa-quote-left"></i>
                                 </span>
-                                <p>{{ testemunho.shortDescription }}</p>
-                                <p class="name">{{ testemunho.name }}</p>
+                                <p>{{ testimony.shortDescription }}</p>
+                                <p class="name">{{ testimony.name }}</p>
                             </div>
                         </div>
                     </div>

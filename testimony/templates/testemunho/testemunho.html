@@ -19,7 +19,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12 col-lg-3 justify-content-center">
             <div class="staff">
-                <div class="img" style="background-image: url({{ testemunho.image.url }})"></div>
+                <div class="img" style="background-image: url({{ testimony.image.url }})"></div>
             </div>
         </div>
     </div>
@@ -28,11 +28,11 @@
     <div class="no-gutters d-flex sermon-wrap ftco-animate bg-light">
         <div class="col-md-12 ftco-animate d-flex align-items-center">
             <div class="text" style="padding: 2rem">
-                <h2 class="mb-4"><a>{{ testemunho.name }}</a></h2>
-                <p>{{ testemunho.description }}</p>
-                {% if testemunho.url %}
+                <h2 class="mb-4"><a>{{ testimony.name }}</a></h2>
+                <p>{{ testimony.description }}</p>
+                {% if testimony.url %}
                 <p class="mt-4 btn-customize">
-                    <a href="{{ testemunho.url }}" class="btn btn-primary px-4 py-3 mr-md-2 popup-vimeo"><span class="fa fa-play"></span> Assista ao Testemunho</a>
+                    <a href="{{ testimony.url }}" class="btn btn-primary px-4 py-3 mr-md-2 popup-vimeo"><span class="fa fa-play"></span> Assista ao Testemunho</a>
                 </p>
                 {% endif %}
             </div>
