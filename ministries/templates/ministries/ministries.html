@@ -1,0 +1,60 @@
+{% extends 'home/base.html' %} {% load static %} {% block body %}
+<section class="hero-wrap hero-wrap-2" style="background-image: url(/static/home/images/bg_1.jpg)">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs mb-2">
+                    <span class="mr-2">
+                        <a href="index.html">Início <i class="fa fa-chevron-right"></i></a>
+                    </span>
+                    <span>Ministérios <i class="fa fa-chevron-right"></i></span>
+                </p>
+                <h1 class="mb-0 bread">Ministérios</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            {% for ministry in ministries %}
+            <div class="col-md-4 ministry ftco-animate">
+                <div class="img" style="background-image: url({{ ministry.image.url }})"></div>
+                <div class="text p-4">
+                    <h2 class="mb-4"><a>{{ ministry.title }}</a></h2>
+                    <p>{{ ministry.shortDescription }}</p>
+                    {% comment %}
+                    <p><a href="" class="btn btn-primary">Mais Detalhes</a></p>
+                    {% endcomment %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if ministries.has_other_pages %}
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        {% if ministries.has_previous %}
+                        <li><a href="?p={{ ministries.previous_page_number }}">&lt;</a></li>
+                        {% else %}
+                        <li><a disabled>&lt;</a></li>
+                        {% endif %} {% for i in ministries.paginator.page_range %} {% if ministries.number == i %}
+                        <li class="active"><span>{{ i }}</span></li>
+                        {% else %}
+                        <li><a href="?p={{ i }}">{{ i }}</a></li>
+                        {% endif %} {% endfor %} {% if ministries.has_next %}
+                        <li><a href="?p={{ ministries.next_page_number }}">&gt;</a></li>
+                        {% else %}
+                        <li><a disabled>&gt;</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
