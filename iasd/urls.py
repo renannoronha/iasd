@@ -27,4 +27,5 @@ urlpatterns = [
     path('', include('escala.urls')),
     path('', include('testimony.urls')),
     path('', include('ministries.urls')),
+    path('', include('newsletter.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

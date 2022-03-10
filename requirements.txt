@@ -7,3 +7,4 @@ httplib2
 oauthlib
 Pillow
 django-object-actions
+django-ckeditor
