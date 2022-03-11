@@ -38,5 +38,5 @@ class EventView(BaseView):
         context['title'] = self.title + ' - ' + context['config'].nome
         
         context['event'] = Events.objects.get(id=kwargs['pk'])
-        context['events'] = Events.objects.filter().exclude(id=kwargs['pk']).order_by('startTime')[:3]
+        context['events'] = Events.objects.filter(endTime__gte=datetime.now()).exclude(id=kwargs['pk']).order_by('startTime')[:3]
         return render(request, self.template_name, context)
