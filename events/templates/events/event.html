@@ -1,0 +1,69 @@
+{% extends 'home/base.html' %} {% load static %} {% block body %}
+<section class="hero-wrap hero-wrap-2" style="background-image: url(/static/home/images/bg_1.jpg)">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs mb-2">
+                    <span class="mr-2">
+                        <a href="{% url 'home' %}">Início <i class="fa fa-chevron-right"></i></a>
+                    </span>
+                    <span class="mr-2">
+                        <a href="{% url 'events' %}">Eventos <i class="fa fa-chevron-right"></i></a>
+                    </span>
+                    <span>Evento <i class="fa fa-chevron-right"></i></span>
+                </p>
+                <h1 class="mb-0 bread">{{ event.title }}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-degree-bg" style="padding-top: 3em !important">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate">
+                {% if event.image %}
+                <div style="text-align: center;">
+                    <img alt="" src="{{ event.image.url }}" style="width: 80%" />
+                </div>
+                {% endif %} {{ event.details|safe }}
+                <br />
+                <div class="meta">
+                    <p>
+                        <span><i class="fa fa-calendar mr-2"></i> {{ event.startTime }} - {{ event.endTime }}</span><br />
+                        <span><i class="fa fa-map-marker mr-2"></i> <a target="_blank" href="{{ event.locationUrl }}">{{ event.locationName}}</a></span
+                        ><br />
+                        <span><i class="fa fa-building mr-2"></i> {{ event.address }}</span><br />
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
+                <div class="sidebar-box ftco-animate">
+                    <h3>Outros Eventos</h3>
+                    {% for event in events %}
+                    <div class="block-21 mb-4 d-flex">
+                        {% if event.image %}
+                        <a href="{% url 'event' event.id %}" class="blog-img mr-4" style="background-image: url({{ event.image.url }})"></a>
+                        {% endif %}
+                        <div class="text">
+                            <h3 class="heading"><a href="{% url 'event' event.id %}">{{ event.title }}</a></h3>
+                            <div class="meta">
+                                <div>
+                                    <a><span class="fa fa-calendar"></span> {{ event.startTime }} - {{ event.endTime }}</a>
+                                </div>
+                                {% comment %}
+                                <div>
+                                    <a><span class="fa fa-user"></span> Admin</a>
+                                </div>
+                                {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
