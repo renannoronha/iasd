@@ -7,6 +7,9 @@ from .models import *
 from sermon.models import Sermon
 from gallery.models import Gallery
 from testimony.models import Testimony
+from events.models import Events
+
+from datetime import datetime
 
 # Create your views here.
 class BaseView(View):
@@ -33,6 +36,6 @@ class HomeView(BaseView):
         context['secao4'] = Sermon.objects.filter(ativo=True).order_by('-date')[:3]
         context['secao5'] = Testimony.objects.all().order_by('?')[:10]
         context['secao6'] = None
-        context['secao7'] = None
+        context['secao7'] = Events.objects.filter(endTime__gte=datetime.now()).order_by('startTime')[:3]
         context['secao8'] = Gallery.objects.filter(ativo=True)
         return render(request, self.template_name, context)
