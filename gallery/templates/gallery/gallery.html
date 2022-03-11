@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %} {% load static %} {% block body %} 
+<section class="hero-wrap hero-wrap-2" style="background-image: url(/static/home/images/bg_1.jpg)">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs mb-2">
+                    <span class="mr-2"
+                        ><a href="{% url 'home' %}">Início <i class="fa fa-chevron-right"></i></a
+                    ></span>
+                    <span>Galeria <i class="fa fa-chevron-right"></i></span>
+                </p>
+                <h1 class="mb-0 bread">Galeria de Fotos</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-no-pb ftco-no-pt">
+    <div class="container-fluid px-md-0">
+        <div class="row no-gutters">
+            {% for foto in gallery %}
+            <div class="col-md-3">
+                <a href="{{ foto.image.url }}" class="image-popup img gallery ftco-animate" style="background-image: url({{ foto.image.url }})">
+                    <span class="overlay"></span>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
