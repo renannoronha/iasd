@@ -28,20 +28,20 @@
             <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                 <h2 class="footer-heading">Últimos Sermões</h2>
                 {% for sermon in footerSermons %}
-                <div class="block-21 mb-4 d-flex">
-                    <a class="img mr-4 rounded" style="background-image: url({{ sermon.thumbnail.url }})"></a>
-                    <div class="text">
-                        <h3 class="heading"><a href="#">{{ sermon.title }}</a></h3>
+                <div class="block-21 mb-3 d-flex">
+                    <a href="{% url 'sermon' sermon.id %}" class="img rounded" style="background-image: url({{ sermon.thumbnail.url }}); width: 190px;"></a>
+                    <div class="text" style="margin-left: 1em">
+                        <h3 class="heading"><a href="{% url 'sermon' sermon.id %}">{{ sermon.title }}</a></h3>
                         <div class="meta">
-                            <div><a href="#">{{ sermon.speaker }}</a></div>
-                            <div><a href="#">{{ sermon.date }}</a></div>
-                            <!-- <div><a href="#">19</a></div> -->
+                            <div><a>{{ sermon.speaker }}</a></div>
+                            <div><a>{{ sermon.date }}</a></div>
+                            <!-- <div><a>19</a></div> -->
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
-            <div class="col-md-6 col-lg-3 pl-lg-5 mb-4 mb-md-0">
+            <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
                 <h2 class="footer-heading">Horários de Culto</h2>
                 {% for horario in horariosCulto %}
                 <div class="block-21 mb-4">
