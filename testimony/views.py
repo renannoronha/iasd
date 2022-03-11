@@ -5,8 +5,6 @@ from .models import Testimony
 from home.views import BaseView
 
 # Create your views here.
-
-
 class TestimoniesView(BaseView):
     template_name = 'testimony/testimonies.html'
     title = 'Testemunhos'
@@ -27,7 +25,6 @@ class TestimoniesView(BaseView):
         context['testimonies'] = testimonies
         return render(request, self.template_name, context)
 
-
 class TestimonyView(BaseView):
     template_name = 'testimony/testimony.html'
     title = 'Testemunho'
@@ -37,4 +34,5 @@ class TestimonyView(BaseView):
         context['title'] = self.title + ' - ' + context['config'].nome
 
         context['testimony'] = Testimony.objects.get(id=kwargs['pk'])
+        context['testimonies'] = Testimony.objects.all().order_by('?')[:3]
         return render(request, self.template_name, context)

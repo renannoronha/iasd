@@ -8,35 +8,43 @@
                     <span class="mr-2">
                         <a href="{% url 'home' %}">Início <i class="fa fa-chevron-right"></i></a>
                     </span>
+                    <span class="mr-2">
+                        <a href="{% url 'testimonies' %}">Testemunhos <i class="fa fa-chevron-right"></i></a>
+                    </span>
                     <span>Testemunho <i class="fa fa-chevron-right"></i></span>
                 </p>
-                <h1 class="mb-0 bread">Testemunho</h1>
+                <h1 class="mb-0 bread">{{ testimony.name }}</h1>
             </div>
         </div>
     </div>
 </section>
-<div class="container" style="padding-top: 20px;">
-    <div class="row justify-content-center">
-        <div class="col-md-12 col-lg-3 justify-content-center">
-            <div class="staff">
-                <div class="img" style="background-image: url({{ testimony.image.url }})"></div>
+<section class="ftco-section ftco-degree-bg" style="padding-top: 3em !important">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ftco-animate">
+                {% if testimony.image %}
+                <div style="text-align: center;">
+                    <img alt="" src="{{ testimony.image.url }}" style="width: 80%" />
+                </div>
+                {% endif %} {{ testimony.description|safe }}
+            </div>
+
+            <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
+                <div class="sidebar-box ftco-animate">
+                    <h3>Outros Testemunhos</h3>
+                    {% for testimony in testimonies %}
+                    <div class="block-21 mb-4 d-flex">
+                        {% if testimony.image %}
+                        <a href="{% url 'testimony' testimony.id %}" class="blog-img mr-4" style="background-image: url({{ testimony.image.url }})"></a>
+                        {% endif %}
+                        <div class="text">
+                            <h3 class="heading"><a href="{% url 'testimony' testimony.id %}">{{ testimony.name }}</a></h3>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container" style="padding-bottom: 20px;">
-    <div class="no-gutters d-flex sermon-wrap ftco-animate bg-light">
-        <div class="col-md-12 ftco-animate d-flex align-items-center">
-            <div class="text" style="padding: 2rem">
-                <h2 class="mb-4"><a>{{ testimony.name }}</a></h2>
-                <p>{{ testimony.description }}</p>
-                {% if testimony.url %}
-                <p class="mt-4 btn-customize">
-                    <a href="{{ testimony.url }}" class="btn btn-primary px-4 py-3 mr-md-2 popup-vimeo"><span class="fa fa-play"></span> Assista ao Testemunho</a>
-                </p>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</div>
+</section>
 {% endblock %}
