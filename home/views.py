@@ -28,7 +28,7 @@ class HomeView(BaseView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data()
-        context['title'] = self.title + ' - ' + context['config'].nome
+        context['title'] = context['config'].nome
         context['banners'] = Banner.objects.filter(ativo=True).order_by('ordem')
         context['secao1'] = PrimeiraSecao.objects.filter(site=Site.objects.get_current()).first()
         context['secao2'] = SegundaSecao.objects.filter(site=Site.objects.get_current()).first()
