@@ -5,7 +5,7 @@ from .models import Gallery
 from home.views import BaseView
 
 # Create your views here.
-class HomeView(BaseView):
+class GalleryView(BaseView):
     template_name = 'gallery/gallery.html'
     title = 'Galeria de Fotos'
 
