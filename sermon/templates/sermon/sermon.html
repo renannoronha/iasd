@@ -42,12 +42,12 @@
                 <div class="sidebar-box ftco-animate">
                     <h3>Outros Eventos</h3>
                     {% for sermon in sermons %}
-                    <div class="block-21 mb-4 d-flex">
+                    <div class="block-21 mb-3 d-flex">
                         {% if sermon.thumbnail %}
-                        <a href="{% url 'sermon' sermon.id %}" class="blog-img mr-4" style="background-image: url({{ sermon.thumbnail.url }})"></a>
+                        <a href="{% url 'sermon' sermon.id %}" class="blog-img" style="background-image: url({{ sermon.thumbnail.url }}); width: 190px;"></a>
                         {% endif %}
-                        <div class="text">
-                            <h3 class="heading" style="margin-bottom: 5px !important"><a href="{% url 'sermon' sermon.id %}">{{ sermon.title }}</a></h3>
+                        <div class="text" style="margin-left: 1em">
+                            <h3 class="heading" style="margin-bottom: 0px; font-size: 14px;"><a href="{% url 'sermon' sermon.id %}">{{ sermon.title }}</a></h3>
                             <div class="meta">
                                 <div>
                                     <a><span class="fa fa-user"></span> {{ sermon.speaker }}</a>
