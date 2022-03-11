@@ -20,7 +20,7 @@
         {% for sermon in sermons %}
         <div class="row no-gutters d-flex sermon-wrap ftco-animate bg-light">
             <div class="col-md-6 d-flex align-items-stretch ftco-animate {% if forloop.counter|divisibleby:2 != 0 %}order-md-last{% endif %}">
-                <a href="{{ sermon.link }}" target="_blank" class="img" style="background-image: url({{ sermon.thumbnail.url }})"></a>
+                <a href="{% url 'sermon' sermon.id %}" target="_blank" class="img" style="background-image: url({{ sermon.thumbnail.url }})"></a>
             </div>
             <div class="col-md-6 ftco-animate d-flex align-items-center">
                 <div class="text" style="padding: 2rem">
@@ -28,13 +28,12 @@
                     <div class="meta">
                         <p>
                             <span>Orador: <a class="ptr">{{ sermon.speaker }}</a></span>
-                            {% comment %} <span>Categories: <a href="#">God</a>, <a href="#">Pray</a>, <a href="#">Faith</a></span> {% endcomment %}
                             <span><a>{{ sermon.date }}</a></span>
                         </p>
                     </div>
-                    <p>{{ sermon.description }}</p>
+                    <p>{{ sermon.description|truncatechars:150 }}</p>
                     <p class="mt-4 btn-customize">
-                        <a href="{{ sermon.link }}" class="btn btn-primary px-4 py-3 mr-md-2 popup-vimeo"><span class="fa fa-play"></span> Assistir Sermão</a>
+                        <a href="{% url 'sermon' sermon.id %}" class="btn btn-primary px-4 py-3 mr-md-2"><span class="fa fa-play"></span> Assistir Sermão</a>
                         {% comment %}
                         <a href="#" class="btn btn-primary btn-outline-primary px-4 py-3 ml-lg-2"> <span class="fa fa-download"></span> Download Sermons </a>
                         {%endcomment%}

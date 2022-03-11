@@ -52,8 +52,7 @@ def getNewVideos():
     except Exception as e:
         print(e)
 
-
-class SermonView(BaseView):
+class SermonsView(BaseView):
     template_name = 'sermon/sermons.html'
     title = 'Sermões'
 
@@ -71,4 +70,16 @@ class SermonView(BaseView):
             sermons = paginator.page(paginator.num_pages)
 
         context['sermons'] = sermons
+        return render(request, self.template_name, context)
+
+class SermonView(BaseView):
+    template_name = 'sermon/sermon.html'
+    title = 'Sermão'
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data()
+        context['title'] = self.title + ' - ' + context['config'].nome
+        
+        context['sermon'] = Sermon.objects.get(id=kwargs['pk'])
+        context['sermons'] = Sermon.objects.filter(ativo=True).exclude(id=kwargs['pk']).order_by('-date')[:3]
         return render(request, self.template_name, context)
