@@ -22,7 +22,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 ftco-animate">
-                {{ news.text|safe }}
+                {% if event.image %}
+                <div style="text-align: center">
+                    <img alt="" src="{{ event.image.url }}" style="width: 80%" />
+                </div>
+                {% endif %} {{ news.text|safe }}
             </div>
             <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
                 <div class="sidebar-box ftco-animate">
@@ -38,9 +42,11 @@
                                 <div>
                                     <a><span class="fa fa-calendar"></span> {{ news.date }}</a>
                                 </div>
-                                {% comment %} <div>
+                                {% comment %}
+                                <div>
                                     <a><span class="fa fa-user"></span> Admin</a>
-                                </div> {% endcomment %}
+                                </div>
+                                {% endcomment %}
                             </div>
                         </div>
                     </div>
