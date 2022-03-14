@@ -5,9 +5,9 @@
         <div class="row no-gutters slider-text align-items-end">
             <div class="col-md-9 ftco-animate pb-5">
                 <p class="breadcrumbs mb-2">
-                    <span class="mr-2"
-                        ><a href="{% url 'home' %}">Início <i class="fa fa-chevron-right"></i></a
-                    ></span>
+                    <span class="mr-2">
+                        <a href="{% url 'home' %}">Início <i class="fa fa-chevron-right"></i></a>
+                    </span>
                     <span>Contato <i class="fa fa-chevron-right"></i></span>
                 </p>
                 <h1 class="mb-0 bread">Contato</h1>
@@ -97,7 +97,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                {% csrf_token  %}
+                                                {% csrf_token %}
                                                 <input type="submit" value="Enviar Mensagem" class="btn btn-secondary" />
                                                 <div class="submitting"></div>
                                             </div>
@@ -112,9 +112,11 @@
                     </div>
                 </div>
             </div>
-            {% comment %} <div class="col-md-12">
+            {% comment %}
+            <div class="col-md-12">
                 <div id="map" class="map"></div>
-            </div> {% endcomment %}
+            </div>
+            {% endcomment %}
         </div>
     </div>
 </section>
