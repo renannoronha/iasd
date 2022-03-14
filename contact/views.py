@@ -34,3 +34,12 @@ class ContactView(BaseView):
         except smtplib.SMTPException:
             print("Error: unable to send email")
         return redirect('contact')
+
+class ContactView(BaseView):
+    template_name = 'contact/donate.html'
+    title = 'Ofertar'
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data()
+        context['title'] = self.title + ' - ' + context['config'].nome
+        return render(request, self.template_name, context)
