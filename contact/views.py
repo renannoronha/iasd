@@ -35,7 +35,7 @@ class ContactView(BaseView):
             print("Error: unable to send email")
         return redirect('contact')
 
-class ContactView(BaseView):
+class DonateView(BaseView):
     template_name = 'contact/donate.html'
     title = 'Ofertar'
 

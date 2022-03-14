@@ -24,7 +24,7 @@
                 {% comment %} <li class="nav-item {% if request.path == '/events/' %}active{% endif %}"><a href="{% url 'events' %}" class="nav-link">Eventos</a></li> {% endcomment %}
                 {% comment %} <li class="nav-item {% if request.path == '/newsletter/' %}active{% endif %}"><a href="{% url 'news' %}" class="nav-link">Boletim</a></li> {% endcomment %}
                 <li class="nav-item {% if request.path == '/contact/' %}active{% endif %}"><a href="{% url 'contact' %}" class="nav-link">Contato</a></li>
-                {% comment %} <li class="nav-item cta"><a href="contact.html" class="nav-link">Ofertar</a></li> {% endcomment %}
+                {% comment %} <li class="nav-item cta {% if request.path == '/donate/' %}active{% endif %}"><a href="{% url 'donate' %}" class="nav-link">Ofertar</a></li> {% endcomment %}
             </ul>
         </div>
     </div>
