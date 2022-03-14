@@ -64,12 +64,4 @@
         </div>
     </div>
 </section>
-{% endblock %} {% block script %}
-<script>
-    $(document).ready(() => {
-        var src = $("#youtube").attr("src");
-        src = src.replace("watch?v=", "embed/");
-        $("#youtube").attr("src", src);
-    });
-</script>
 {% endblock %}

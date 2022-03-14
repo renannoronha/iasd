@@ -38,15 +38,15 @@ def getNewVideos():
                 with open('media/' + file_path, 'wb') as handler:
                     handler.write(img_data)
 
+                title = video['snippet']['title'].split(' - ')[0]
                 speaker = video['snippet']['title'].split(' - ')[1] if ' - ' in video['snippet']['title'] else 'Placeholder'
                 Sermon.objects.create(
                     thumbnail=file_path,
-                    title=video['snippet']['title'],
+                    title=title,
                     speaker=speaker,
                     date=date,
                     description=video['snippet']['description'],
-                    link='https://www.youtube.com/watch?v=' +
-                    video['snippet']['resourceId']['videoId'],
+                    link='https://www.youtube.com/watch?v=' + video['snippet']['resourceId']['videoId'],
                     ativo=False,
                 )
     except Exception as e:
@@ -81,5 +81,6 @@ class SermonView(BaseView):
         context['title'] = self.title + ' - ' + context['config'].nome
         
         context['sermon'] = Sermon.objects.get(id=kwargs['pk'])
+        context['sermon'].link = context['sermon'].link.replace('watch?v=', 'embed/')
         context['sermons'] = Sermon.objects.filter(ativo=True).exclude(id=kwargs['pk']).order_by('-date')[:3]
         return render(request, self.template_name, context)
