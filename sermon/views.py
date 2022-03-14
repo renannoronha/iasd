@@ -35,7 +35,7 @@ def getNewVideos():
                 except Exception as e:
                     img_data = requests.get(video['snippet']['thumbnails']['high']['url']).content
                 file_path = 'sermon/' + video['snippet']['resourceId']['videoId'] + '.jpg'
-                with open('media/' + file_path, 'wb') as handler:
+                with open(os.path.join(settings.BASE_DIR, 'media/' + file_path), 'wb') as handler:
                     handler.write(img_data)
 
                 title = video['snippet']['title'].split(' - ')[0]
