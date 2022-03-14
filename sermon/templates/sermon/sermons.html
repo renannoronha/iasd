@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-6 ftco-animate d-flex align-items-center">
                 <div class="text" style="padding: 2rem">
-                    <h2 class="mb-4"><a>{{ sermon.title }}</a></h2>
+                    <h2 class="mb-4"><a href="{% url 'sermon' sermon.id %}">{{ sermon.title }}</a></h2>
                     <div class="meta">
                         <p>
                             <span>Orador: <a class="ptr">{{ sermon.speaker }}</a></span>
