@@ -30,4 +30,5 @@ urlpatterns = [
     path('', include('newsletter.urls')),
     path('', include('sermon.urls')),
     path('', include('testimony.urls')),
+    path('', include('agenda.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

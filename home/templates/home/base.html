@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}?v={{ version }}" />
         <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}?v={{ version }}" />
         <link rel="stylesheet" href="{% static 'home/css/animate.css' %}?v={{ version }}" />
+        {% block head %} {% endblock %}
     </head>
     <body>
         {% include 'home/header.html' %}
