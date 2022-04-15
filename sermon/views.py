@@ -20,7 +20,7 @@ def getNewVideos():
 
         response = youtube.channels().list(id=channel_id, part='contentDetails').execute()
         playlist_id = response['items'][0]['contentDetails']['relatedPlaylists']['uploads']
-        response = youtube.playlistItems().list(playlistId=playlist_id, part='snippet').execute()
+        response = youtube.playlistItems().list(playlistId=playlist_id, part='snippet', maxResults=50).execute()
 
         lastVideo = Sermon.objects.all().order_by('-date').first()
         for video in response['items']:
